@@ -25,11 +25,11 @@ Dla rozwiązywanego problemu mamy
 \[ d_A = 318.8636072053379\mbox{km} \]
 \[ d_B = 249.9479945908749\mbox{km} \]
 \[ d_C = 336.8590209568388\mbox{km} \]
-a więc 
+a więc, używając trzeciego równania do wyeliminowania jednego z rozwiązań, mamy
 \[ x = 143 \]
 \[ y = 305 \]
 
-\includegraphics[scale=.7]{circles.eps}
+\includegraphics[scale=.8]{circles.eps}
 
 System nawigacji hiperbolicznej taki jak LORAN pozwala rozwiązać tego rodzaju
 problem zakładając znajomość jedynie różnicy odległości pomiędzy stacjami
@@ -48,10 +48,36 @@ A i C.  Wtedy musi zachodzić
 Dla naszego problemu mamy
 \[ c = \frac{x_A}{2} \]
 Równania te wyznaczają rodzinę hiperbol dla ognisk A i C.  Znając dodatkowo
-różnicę odległości szukanego punktu i każdego z ognisk możemy wyznaczyć równanie
+różnicę odległości szukanego punktu do każdego z ognisk możemy wyznaczyć równanie
 hiperboli zawierającej ten punkt korzystając z faktu, że
 \[ 2a = |d_A - d_C| \]
 
-\includegraphics[scale=.7]{hyperbolas_ew.eps}
+Mamy więc ostatecznie
+\[ a = \frac{|d_A - d_C|}{2} \]
+\[ b = \sqrt{\left(\frac 1 2 x_A\right)^2 - a^2} \]
+
+\includegraphics[scale=.8]{hyperbolas_ew.eps}
+
+\subsection{Punkty B i C}
+Dla punktów B i C wykorzystamy odwróconą hiperbolę:
+\[ \frac{(y-y_0)^2}{a^2} - \frac{(x-x_0)^2}{b^2} = 1 \]
+Biorąc $x_0 = 0$, $y_0 = \frac{y_B}{2}$ i przeprowadzając rozważanie analogiczne
+jak powyżej otrzymujemy
+\[ a = \frac{|d_B - d_C|}{2} \]
+\[ b = \sqrt{\left(\frac 1 2 y_B\right)^2 - a^2} \]
+
+\includegraphics[scale=.8]{hyperbolas_ns.eps}
+
+\section{Rozwiązanie numeryczne}
+\subsection{Doprecyzowanie rozwiązania}
+Wyznaczone hiperbole przecinają się w czterech punktach.  Aby wybrać własciwe
+rozwiązanie, posłużymy się jednym ze zdefiniowanych wcześniej równań okręgów.
+
+\subsection{Rozwiązanie przy pomocy funkcji fsolve}
+Wynik uzyskany przez wywołanie funkcji fsolve z domyślnymi parametrami:
+\lstinputlisting{fvalopt.log}
+
+\section{Kod rozwiązania}
+\lstinputlisting[language=MATLAB]{projekt.m}
 
 \end{document}
