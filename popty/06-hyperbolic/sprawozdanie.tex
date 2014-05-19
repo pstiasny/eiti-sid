@@ -22,9 +22,9 @@ Korzystając z pierwszych dwóch równań mamy
 Dla rozwiązywanego problemu mamy
 \[ x_A = 50 \]
 \[ y_B = 100 \]
-\[ d_A = 318.8636072053379\mbox{km} \]
-\[ d_B = 249.9479945908749\mbox{km} \]
-\[ d_C = 336.8590209568388\mbox{km} \]
+\[ d_A = 318.8636072053379 \, \mbox{km} \]
+\[ d_B = 249.9479945908749 \, \mbox{km} \]
+\[ d_C = 336.8590209568388 \, \mbox{km} \]
 a więc, używając trzeciego równania do wyeliminowania jednego z rozwiązań, mamy
 \[ x = 143 \]
 \[ y = 305 \]
@@ -72,6 +72,9 @@ jak powyżej otrzymujemy
 \subsection{Doprecyzowanie rozwiązania}
 Wyznaczone hiperbole przecinają się w czterech punktach.  Aby wybrać własciwe
 rozwiązanie, posłużymy się jednym ze zdefiniowanych wcześniej równań okręgów.
+
+\subsection{Rozwiązanie przy pomocy fminunc z podaniem gradientu}
+\lstinputlisting{fminopt.log}
 
 \subsection{Rozwiązanie przy pomocy funkcji fsolve}
 Wynik uzyskany przez wywołanie funkcji fsolve z domyślnymi parametrami:

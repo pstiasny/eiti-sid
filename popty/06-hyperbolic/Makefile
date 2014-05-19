@@ -1,5 +1,5 @@
 PLOTS=circles.eps hyperbolas_ew.eps hyperbolas_ns.eps
-DIARIES=fvalopt.log
+DIARIES=fvalopt.log fminopt.log
 MATLAB=octave --eval 'graphics_toolkit("gnuplot")'
 
 sprawozdanie.pdf: sprawozdanie.tex $(PLOTS) $(DIARIES)

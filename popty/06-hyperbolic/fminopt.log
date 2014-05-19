@@ -1,0 +1,21 @@
+xopt_num =
+
+  143.0000
+  305.0000
+
+
+fval_num =
+
+   1.3422e-16
+
+
+output_num = 
+
+         iterations: 31
+          funcCount: 32
+       cgiterations: 28
+      firstorderopt: 3.8168e-07
+          algorithm: 'large-scale: trust-region Newton'
+            message: [1x496 char]
+    constrviolation: []
+

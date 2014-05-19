@@ -61,8 +61,17 @@ minfun = @(X) [
     (X(2)-yb/2).^2 ./ a_ns.^2 - X(1).^2 ./ b_ns.^2 - 1;
     circ_a(X(1), X(2))
 ];
-[opt, fval, ~, output, ~] = fsolve(minfun, [200; 200])
+[fsolve_opt, fval, ~, output, ~] = fsolve(minfun, [200; 200])
 diary off
 
+diary fminopt.log
+dminfun = @(x,y) [
+2*(2*x - 2*xa)*((x - xa)^2 - dist_a^2 + y^2) + (4*x*(x^2/b_ns^2 - (y - yb/2)^2/a_ns^2 + 1))/b_ns^2 - (2*(2*x - xa)*(y^2/b_ew^2 - (x - xa/2)^2/a_ew^2 + 1))/a_ew^2;
+4*y*((x - xa)^2 - dist_a^2 + y^2) + (4*y*(y^2/b_ew^2 - (x - xa/2)^2/a_ew^2 + 1))/b_ew^2 - (2*(2*y - yb)*(x^2/b_ns^2 - (y - yb/2)^2/a_ns^2 + 1))/a_ns^2
+];
+
+OPTIONS=optimset('gradobj','on');
+[xopt_num,fval_num,~,output_num] = fminunc({ (@(X) minfun(X)' * minfun(X)), (@(X) dminfun(X(1), X(2))) }, [200; 200], OPTIONS)
+diary off
 
 hold off
