@@ -46,6 +46,7 @@ circle(0,  0,  dist_c)
 
 plot(opt(1), opt(2), 'r*')
 text(opt(1), opt(2), 'OPT')
+print -depsc circles.eps
 
 for a = 1:2:20
     b = sqrt((xa/2).^2 - a.^2);
@@ -54,6 +55,7 @@ end
 a = abs(dist_a - dist_c) / 2
 b = sqrt((xa/2).^2 - a.^2)
 hyperbola_ew(xa/2, 0, a, b, 'r');
+print -depsc hyperbolas_ew.eps
 
 a = abs(dist_b - dist_c) / 2
 b = sqrt((yb/2).^2 - a.^2)

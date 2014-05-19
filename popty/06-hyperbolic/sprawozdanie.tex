@@ -1,0 +1,57 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{listings}
+\usepackage{fullpage}
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\begin{document}
+
+\section{Wstęp}
+Znając dokładne odległości od każdego z trzech punktów możemy analitycznie
+wyprowadzić referencyjne rozwiązanie, rozwiązując układ trzech równań okręgu:
+\[
+    \begin{cases}
+        (x - x_A)^2 + y^2 &= d_A^2 \\
+        x^2 + y^2 &= d_C^2 \\
+        x^2 + (y-y_B)^2 &= d_B^2 \\
+    \end{cases}
+\]
+Korzystając z pierwszych dwóch równań mamy
+\[ x = \frac{x_A^2 + d_C^2 - d_A^2}{2x_A} \]
+\[ y = \pm \sqrt{d_C^2 - x^2} \]
+Dla rozwiązywanego problemu mamy
+\[ x_A = 50 \]
+\[ y_B = 100 \]
+\[ d_A = 318.8636072053379\mbox{km} \]
+\[ d_B = 249.9479945908749\mbox{km} \]
+\[ d_C = 336.8590209568388\mbox{km} \]
+a więc 
+\[ x = 143 \]
+\[ y = 305 \]
+
+\includegraphics[scale=.7]{circles.eps}
+
+System nawigacji hiperbolicznej taki jak LORAN pozwala rozwiązać tego rodzaju
+problem zakładając znajomość jedynie różnicy odległości pomiędzy stacjami
+nadawczymi.  Takie założenie czynię również przy dalszych rozważaniach.
+
+
+\section{Wyznaczenie hiperbol}
+\subsection{Punkty A i C}
+Rozważmy kanoniczną postać równania hiperboli
+\[ \frac{(x-x_0)^2}{a^2} - \frac{(y-y_0)^2}{b^2} = 1 \]
+W przypadku rozważanego problemu $x_0 = \frac{x_A}{2}$ i $y_0 = 0$.
+
+Niech $c$ - odległość pomiędzy środkiem $(x_0, y_0)$ hiperboli i każdym z ognisk
+A i C.  Wtedy musi zachodzić
+\[ a^2 + b^2 = c^2 \]
+Dla naszego problemu mamy
+\[ c = \frac{x_A}{2} \]
+Równania te wyznaczają rodzinę hiperbol dla ognisk A i C.  Znając dodatkowo
+różnicę odległości szukanego punktu i każdego z ognisk możemy wyznaczyć równanie
+hiperboli zawierającej ten punkt korzystając z faktu, że
+\[ 2a = |d_A - d_C| \]
+
+\includegraphics[scale=.7]{hyperbolas_ew.eps}
+
+\end{document}
